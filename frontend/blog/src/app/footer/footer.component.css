@@ -1,0 +1,42 @@
+.social-network{
+    list-style: none;        
+}
+
+.social-network > li{
+    display: inline;
+    padding: 5px;
+    font-size: 25px;
+    margin: 0;
+}
+
+.icoFacebook, .icoInstagram, .icoTwitter, .icoYoutube, .icoLinkedin, .icoFlickr, .icoSoundcloud{
+    color: white;
+}
+
+.icoFacebook:hover {
+    color:#3b5998;
+}
+
+.icoInstagram:hover{
+    color: #3f729b;
+}
+
+.icoTwitter:hover{
+    color: #00acee;
+}
+
+.icoYoutube:hover{
+    color: #c4302b;
+}
+
+.icoLinkedin:hover{
+    color: #0e76a8;
+}
+
+.icoFlickr:hover{
+    color: #0063dc;
+}
+
+.icoSoundcloud:hover {
+    color: #ff7700;
+}

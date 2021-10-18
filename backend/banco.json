@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "nome": "Maria",
+      "documento": "Documento de identidade",
+      "local": "PAC São José"
+    },
+    {
+      "id": 2,
+      "nome": "João",
+      "documento": "Carteira de trabalho",
+      "local": "PAC Compensa"
+    },
+    {
+      "id": 3,
+      "nome": "José",
+      "documento": "Cartão Passa fácil",
+      "local": "PAC Alvorada"
+    },
+    {
+      "id": 4,
+      "nome": "Gabriel",
+      "documento": "Carteira estudantil",
+      "local": "PAC Sumaúma"
+    }
+  ]
+}

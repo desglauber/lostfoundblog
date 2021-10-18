@@ -1,0 +1,15 @@
+{
+  "name": "lostfoundblog",
+  "version": "1.0.0",
+  "description": "Blog de achados e perdidos da Prefeitura de Manaus",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --watch banco.json --port 3000"
+  },
+  "keywords": [],
+  "author": "Glauber Farias",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}
