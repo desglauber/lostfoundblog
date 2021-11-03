@@ -1,6 +1,6 @@
-export class Post{
-    public id!: number
-    public nome!: string
-    public documento!: string
-    public local!: string
+export interface Post{
+    id: string;
+    nome: string;
+    documento: string;
+    local: string;
 }

@@ -12,7 +12,7 @@
                     <hr class="mt-4 mb-4">
                     <h6 class="mb-3 text-monospace text-center">Pesquisar por título</h6>
                     <input type="text" class="form-control mb-3 w-100">
-                    <button class="btn btn-outline-warning w-100">Pesquisar</button>
+                    <button class="btn btn-outline-dark w-100">Pesquisar</button>
                 </div>
               </div>
         </div>
@@ -22,38 +22,39 @@
 
                 <div class="form-group">
                     <label for="nome" class="text-monospace">Nome</label>
-                    <input type="text" name="nome" id="nome" class="form-control" placeholder="Digite o título da postagem" [(ngModel)]='post.nome'>
+                    <input type="text" name="nome" id="nome" class="form-control" placeholder="Digite o nome da pessoa" [(ngModel)]='post.nome'>
                 </div>
                 <div class="form-group mt-2">
                     <label for="documento" class="text-monospace">Documento</label>
-                    <textarea name="documento" id="documento" cols="30" rows="4" class="form-control" 
+                    <textarea name="documento" id="documento" cols="30" rows="4" class="form-control"
                     placeholder="Digite o(s) documento(s) perdido(s)" [(ngModel)]='post.documento'></textarea>
                 </div>
                 <div class="form-group mt-2">
                     <label for="local" class="text-monospace">Localização</label>
-                    <input type="text" name="local" id="local" class="form-control" placeholder="Digite o título da postagem" [(ngModel)]='post.local'>
+                    <input type="text" name="local" id="local" class="form-control"
+                    placeholder="Digite o local onde encontra(m)-se o(s) documento(s)" [(ngModel)]='post.local'>
                 </div>
                 <div class="d-flex justify-content-end mt-2">
-                    <button type="button" class="btn btn-outline-info w-25" (click)='cadastrarDocumento()'>Cadastrar</button>
+                    <button type="button" class="btn btn-outline-dark w-25"
+                    (click)='cadastrarDocumento(post)'>Cadastrar</button>
                 </div>
             </div>
 
             <hr class="mt-5 mb-5">
 
-            <h3 class="text-center mb-5 text-monospace">Documentos adicionados</h3>
+            <h3 class="text-center mb-5 text-monospace">Documentos encontrados</h3>
             <div class="container">
                 <div class="card mb-4" *ngFor="let post of listPost">
                     <div class="card-header">
-                        <h5 class="card-title">{{post.id}}</h5>
+                        <h5 class="card-title">Nº {{post.id}}</h5>
                     </div>
                     <div class="card-body">
-                        <p class="card-text">{{post.nome}}</p>
-                        <p class="card-text">{{post.documento}}</p>
-                        <p class="card-text">{{post.local}}</p>
+                        <p class="card-text">Nome: {{post.nome}}</p>
+                        <p class="card-text">Documento: {{post.documento}}</p>
+                        <p class="card-text">Localização: {{post.local}}</p>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

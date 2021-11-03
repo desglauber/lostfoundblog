@@ -9,26 +9,35 @@ import { Post } from '../model/Post';
 })
 export class FeedComponent implements OnInit {
 
-  listPost: Post[];
-  post: Post = new Post;
-  
+  listPost: Post[]=[];
+  post: Post = {id:'', nome: '', documento:'', local: ''};
+
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-    this.findPosts()    
+    this.findPosts()
   }
 
   findPosts(){
-    this.postService.getPosts().subscribe((data: Post[])=>{
-      this.listPost = data;
-    })
+    this.postService.getPosts().subscribe(data =>
+      this.listPost = data);
   }
 
-  cadastrarDocumento(){
+ cadastrarDocumento(post: Post){
+    this.postService.postMensagem(this.post).subscribe(()=>{
+      alert('Documento cadastrado com sucesso');
+    },
+    () => {
+      alert('Error');
+    });
+    location.assign('/feed');
+  }
+
+  /*  cadastrarDocumento(){
     this.postService.postMensagem(this.post).subscribe((data: Post)=>{
       this.post = data
       location.assign('/feed')
     })
-  }
+  } */
 
 }
