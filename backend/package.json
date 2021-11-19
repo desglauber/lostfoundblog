@@ -4,7 +4,8 @@
   "description": "Blog de achados e perdidos da Prefeitura de Manaus",
   "main": "index.js",
   "scripts": {
-    "start": "json-server --watch banco.json --port 3000"
+    "start": "json-server --watch banco.json --port 3000",
+		"remoto": "json-server --host 172.27.13.4 banco.json --port 3000 --disable-host-check"
   },
   "keywords": [],
   "author": "Glauber Farias",
@@ -13,3 +14,4 @@
     "json-server": "^0.17.0"
   }
 }
+

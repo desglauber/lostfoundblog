@@ -3,33 +3,27 @@ import { PostService } from '../service/post.service';
 import { Post } from '../model/Post';
 
 @Component({
-  selector: 'app-feed',
-  templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.css']
+  selector: 'app-cadastro',
+  templateUrl: './cadastro.component.html',
+  styleUrls: ['./cadastro.component.css']
 })
-export class FeedComponent implements OnInit {
+export class CadastroComponent implements OnInit {
 
-  listPost: Post[]=[];
   post: Post = {id:'', nome: '', documento:'', local: ''};
 
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
-    this.findPosts()
   }
 
-  findPosts(){
-    this.postService.getPosts().subscribe(data =>
-      this.listPost = data);
-  }
-
- /* cadastrarDocumento(post: Post){
+  cadastrarDocumento(post: Post){
     this.postService.postMensagem(this.post).subscribe(()=>{
       alert('Documento cadastrado com sucesso!');
     },
     () => {
-      alert('Error');
+      alert('Ocorreu um erro!');
     });
     location.assign('/feed');
- } */
+ }
+
 }
