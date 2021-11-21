@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "json-server --watch banco.json --port 3000",
-		"remoto": "json-server --host 172.27.13.4 banco.json --port 3000 --disable-host-check"
+    "remoto": "json-server --host 172.27.13.4 banco.json --port 3000 --disable-host-check"
   },
   "keywords": [],
   "author": "Glauber Farias",
   "license": "ISC",
   "dependencies": {
-    "json-server": "^0.17.0"
+    "json-server": "^0.17.0",
+    "nodemailer": "^6.7.1"
   }
 }
-

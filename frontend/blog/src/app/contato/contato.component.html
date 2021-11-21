@@ -1,8 +1,73 @@
+<!-- <form class="contact" [formGroup]="form" method="post" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [formControl]="name" required>
+    <mat-error *ngIf="name.invalid">Please enter your name</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput [formControl]="email" placeholder="email@example.com" required>
+    <mat-error *ngIf="email.invalid">Please enter a valid email</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Message</mat-label>
+    <textarea matInput [formControl]="message" maxlength="256" placeholder="I'm interested in..." required></textarea>
+    <mat-hint align="end"> {{message.value?.length || 0}}/256</mat-hint>
+    <mat-error *ngIf="message.invalid">Please enter a message</mat-error>
+  </mat-form-field>
+  <button [disabled]="isLoading" class="submit" type="submit">Submit</button>
+  <input [formControl]="honeypot" class="hidden" type="text" />
+  <div [ngClass]="!submitted? 'hidden' : 'visible'" class="center-text">
+    <span>{{responseMessage}}</span>
+  </div>
+</form> -->
+
+
+<!-- NOVO -->
 <div class="container">
   <div class="row mb-5 mt-5">
     <div class="col-md-6 offset-md-3">
       <h3 class="text-center mb-4 text-monospace">Entre em contato conosco</h3>
-      <form>
+      <form class="contact" [formGroup]="form" method="post" (ngSubmit)="onSubmit()">
+          <div class="form-group mb-2">
+            <mat-form-field>
+              <mat-label>Seu nome</mat-label>
+              <input matInput [formControl]="name" required>
+              <mat-error *ngIf="name.invalid">Digite o seu nome</mat-error>
+            </mat-form-field>              
+          </div>
+          <div class="form-group mb-2">
+              <mat-form-field>
+                <mat-label>Seu e-mail</mat-label>
+                <input matInput [formControl]="email" placeholder="email@examplo.com" required>
+                <mat-error *ngIf="email.invalid">Coloque um endereço de e-mail válido</mat-error>
+              </mat-form-field>
+          </div>
+          <div class="form-group mb-2">
+              <mat-form-field>
+                <mat-label>Sua menssagem</mat-label>
+                <textarea matInput [formControl]="message" maxlength="256" placeholder="Escreva sua mensagem aqui" required></textarea>
+                <mat-hint align="end"> {{message.value?.length || 0}}/256</mat-hint>
+                <mat-error *ngIf="message.invalid">Digite sua mensagem</mat-error>
+              </mat-form-field>
+          </div>
+          <button [disabled]="isLoading" class="submit btn-outline-dark" type="submit">Enviar</button>
+            <input [formControl]="honeypot" class="hidden" type="text" />
+            <div [ngClass]="!submitted? 'hidden' : 'visible'" class="center-text">
+              <span>{{responseMessage}}</span>
+            </div>          
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- ANTIGO -->
+<!-- <div class="container">
+  <div class="row mb-5 mt-5">
+    <div class="col-md-6 offset-md-3">
+      <h3 class="text-center mb-4 text-monospace">Entre em contato conosco</h3>
+      <form >
           <div class="form-group mb-2">
               <label for="nome">Nome</label>
               <input type="text" class="form-control" id="nome" placeholder="Digite seu nome">
@@ -19,4 +84,4 @@
       </form>
     </div>
   </div>
-</div>
+</div> -->
