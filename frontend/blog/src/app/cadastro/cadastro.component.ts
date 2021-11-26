@@ -24,6 +24,5 @@ export class CadastroComponent implements OnInit {
       alert('Ocorreu um erro!');
     });
     location.assign('/feed');
- }
-
+  }
 }

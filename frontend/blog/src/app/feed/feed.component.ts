@@ -22,14 +22,4 @@ export class FeedComponent implements OnInit {
     this.postService.getPosts().subscribe(data =>
       this.listPost = data);
   }
-
- /* cadastrarDocumento(post: Post){
-    this.postService.postMensagem(this.post).subscribe(()=>{
-      alert('Documento cadastrado com sucesso!');
-    },
-    () => {
-      alert('Error');
-    });
-    location.assign('/feed');
- } */
 }

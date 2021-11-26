@@ -10,7 +10,7 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  private url = 'http://localhost:3000/posts';
+  private url = 'http://172.27.13.4:3000/posts';
 
   getPosts(){
     return this.http.get<Post[]>(this.url);

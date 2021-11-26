@@ -1,24 +1,33 @@
 <div class="container">
   <div class="row mb-5 mt-5">
-      <div class="col-md-6 offset-md-3">
-          <h3 class="text-center mb-4 text-monospace">Cadastro de informações</h3>
-          <div class="form-group">
-              <label for="nome" class="text-monospace">Nome</label>
-              <input type="text" name="nome" id="nome" class="form-control"
-              placeholder="Digite o nome como está no documento" [(ngModel)]='post.nome'>
-          </div>
-          <div class="form-group mt-2">
-              <label for="documento" class="text-monospace">Documento</label>
-              <textarea name="documento" id="documento" cols="30" rows="4" class="form-control"
-              placeholder="Informe o que foi perdido" [(ngModel)]='post.documento'></textarea>
-          </div>
-          <div class="form-group mt-2">
-              <label for="local" class="text-monospace">Localização</label>
-              <input type="text" name="local" id="local" class="form-control"
-              placeholder="Escolha a localização" [(ngModel)]='post.local'>
-          </div>
-          <button type="button" class="btn btn-outline-dark mt-2"
-              (click)='cadastrarDocumento(post)'>Cadastrar</button>
+    <div class="col-md-6 offset-md-3">
+      <h3 class="text-center mb-4 text-monospace">Cadastro de informações</h3>
+      <div class="form-group">
+          <label for="nome" class="text-monospace">Nome</label>
+          <input type="text" name="nome" id="nome" class="form-control"
+          placeholder="Informe o nome como está no documento" [(ngModel)]='post.nome'>
       </div>
+      <div class="form-group mt-2">
+          <label for="documento" class="text-monospace">Documento(s)</label>
+          <textarea name="documento" id="documento" cols="30" rows="4" class="form-control"
+          placeholder="Descreva o que foi perdido" [(ngModel)]='post.documento'></textarea>
+      </div>
+      <div class="form-group mt-2">
+          <label for="local" class="text-monospace">Localização</label>
+          <select type="text" name="local" id="local" class="form-select" [(ngModel)]='post.local'>
+            <option selected>Escolha a localização</option>
+            <option value="PAC ALVORADA">1 - PAC ALVORADA</option>
+            <option value="PAC CIDADE NOVA">2 - PAC CIDADE NOVA</option>
+            <option value="PAC COMPENSA">3 - PAC COMPENSA</option>
+            <option value="PAC EDUCANDOS">4 - PAC EDUCANDOS</option>
+            <option value="PAC PORTO">5 - PAC PORTO</option>
+            <option value="PAC SÃO JOSÉ">6 - PAC SÃO JOSÉ</option>
+            <option value="PAC SHOPPING PHELIPPE DAOU">7 - PAC SHOPPING PHELIPPE DAOU</option>
+            <option value="PAC SHOPPING VIA NORTE">8 - PAC SHOPPING VIA NORTE</option>
+          </select>
+      </div>
+      <button type="button" class="btn btn-outline-dark mt-2"
+          (click)='cadastrarDocumento(post)'>Cadastrar</button>
+    </div>
   </div>
 </div>
