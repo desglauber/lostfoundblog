@@ -4,7 +4,7 @@
   "description": "Blog de achados e perdidos da Prefeitura de Manaus",
   "main": "index.js",
   "scripts": {
-    "start": "json-server --host 172.27.13.4 banco.json --port 3000 --disable-host-check",
+    "start": "json-server --watch banco.json --port 3000",
     "iniciate": "json-server --host 172.27.13.4 banco.json --port 3000 --disable-host-check"
   },
 	"scriptsComments": {

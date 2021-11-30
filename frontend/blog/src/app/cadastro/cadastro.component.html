@@ -26,8 +26,31 @@
             <option value="PAC SHOPPING VIA NORTE">8 - PAC SHOPPING VIA NORTE</option>
           </select>
       </div>
-      <button type="button" class="btn btn-outline-dark mt-2"
+      <button type="button" class="btn btn-success mt-2"
           (click)='cadastrarDocumento(post)'>Cadastrar</button>
     </div>
+    <div class="container col-md-6 mt-5 justify-content-center">
+      <h3 class="text-center mb-5 text-monospace">REGISTROS DISPONÍVEIS</h3>
+      <div class="container">
+          <div class="card mb-4" *ngFor="let post of listPost">
+              <div class="card-header">
+                  <h5 class="card-title text-center">REGISTRO Nº: {{post.id}}</h5>
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-outline-dark btn-sm">Editar</button>
+                    <button type="button" class="btn btn-outline-warning btn-sm" disabled>Arquivar</button>
+                    <button type="button" class="btn btn-outline-danger btn-sm" (click)="deletePost(post.id)">Excluir</button>
+                  </div>
+              </div>
+              <div class="card-body">
+                  <p class="card-text">NOME: {{post.nome}}</p>
+                  <p class="card-text">DOCUMENTO(S) PERDIDO(S): {{post.documento}}</p>
+                  <p class="card-text">LOCAL: {{post.local}}</p>
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-success btn-sm" disabled>Salvar</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
   </div>
 </div>

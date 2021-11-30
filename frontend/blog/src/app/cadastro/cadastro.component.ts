@@ -9,20 +9,37 @@ import { Post } from '../model/Post';
 })
 export class CadastroComponent implements OnInit {
 
-  post: Post = {id:'', nome: '', documento:'', local: ''};
+  listPost: Post[]=[];
+  post: Post = {id:'', nome:'', documento:'', local:''};
 
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
+    this.findPosts()
+  }
+
+  findPosts(){
+    this.postService.getPosts().subscribe(data =>
+      this.listPost = data);
   }
 
   cadastrarDocumento(post: Post){
     this.postService.postMensagem(this.post).subscribe(()=>{
-      alert('Documento cadastrado com sucesso!');
+      alert('Documento Nº: ' + post + ' cadastrado com sucesso!');
     },
     () => {
       alert('Ocorreu um erro!');
     });
-    location.assign('/feed');
+    location.assign('/cadastro');
+  }
+
+  deletePost(id: string) {
+    return this.postService.deletePost(id).subscribe(
+      data=> {
+        alert('Registro Nº: '+ id + ' excluído com sucesso!')
+        location.assign('/cadastro');
+      },
+      error => console.log(error)
+    );
   }
 }
