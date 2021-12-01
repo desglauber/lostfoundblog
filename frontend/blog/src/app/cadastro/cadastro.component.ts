@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../service/post.service';
 import { Post } from '../model/Post';
@@ -24,8 +25,9 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrarDocumento(post: Post){
-    this.postService.postMensagem(this.post).subscribe(()=>{
-      alert('Documento Nº: ' + post + ' cadastrado com sucesso!');
+    this.postService.postMensagem(this.post).subscribe((data)=>{
+
+      alert('Documento Nº: ' + data.id + ' cadastrado com sucesso!');
     },
     () => {
       alert('Ocorreu um erro!');
