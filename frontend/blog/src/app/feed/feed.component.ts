@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../service/post.service';
-import { Post } from '../model/Post';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-feed',
@@ -9,17 +9,24 @@ import { Post } from '../model/Post';
 })
 export class FeedComponent implements OnInit {
 
-  listPost: Post[]=[];
-  post: Post = {id:'', nome: '', documento:'', local: ''};
+  formValue!: FormGroup;
+  documentData!: any;
 
-  constructor(private postService: PostService) { }
+  constructor(private formBuilder: FormBuilder, private postModel: PostService) { }
 
   ngOnInit(): void {
-    this.findPosts()
+    this.formValue = this.formBuilder.group({
+      nome: [''],
+      documento: [''],
+      local: ['']
+    })
+    this.getDocuments();
   }
 
-  findPosts(){
-    this.postService.getPosts().subscribe(data =>
-      this.listPost = data);
+  getDocuments(){
+    this.postModel.getDocument()
+    .subscribe(res => {
+      this.documentData = res;
+    })
   }
 }

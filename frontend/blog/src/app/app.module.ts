@@ -15,6 +15,8 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from "@angular/material/input";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AtualizaComponent } from './atualiza/atualiza.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     FooterComponent,
     FeedComponent,
     ContatoComponent,
-    CadastroComponent
+    CadastroComponent,
+    AtualizaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     NoopAnimationsModule,
     MatInputModule,
     BrowserAnimationsModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

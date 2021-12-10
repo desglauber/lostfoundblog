@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,  } from '@angular/common/http';
-import { Post } from '../model/Post';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+//import { Post } from '../model/Post';
+//import { Observable, pipe } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,21 +11,33 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  private url = 'http://localhost:3000/posts';
+  private url = 'http://localhost:3000/posts/';
 
-  getPosts(){
-    return this.http.get<Post[]>(this.url);
+  postDocument(data: any){
+    return this.http.post<any>(this.url, data)
+    .pipe(map((res: any) => {
+      return res;
+    }))
   }
 
-  postMensagem(post: Post): Observable<Post>{
-    return this.http.post<Post>(this.url, post)
+  getDocument(){
+    return this.http.get<any>(this.url)
+    .pipe(map((res: any) => {
+      return res;
+    }))
   }
 
-  updatePost (id: string, value: any) : Observable<Object>{
-    return this.http.put(`${this.url}/${id}`, value)
+  updateDocument(data: any, id: number){
+    return this.http.put<any>(this.url + id, data)
+    .pipe(map((res: any) => {
+      return res;
+    }))
   }
 
-  deletePost(id: string): Observable<any>{
-    return this.http.delete(`${this.url}/${id}`, {responseType: 'text'});
+  delDocument(id: number){
+    return this.http.delete<any>(this.url + id)
+    .pipe(map((res: any) => {
+      return res;
+    }))
   }
 }

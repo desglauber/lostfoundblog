@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <h1>Página de Administração</h1>
+  <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success d-flex"
+  (click)="clickAddDocument()">Novo Cadastro</button>
+  <div class="container col-md-6 mt-5 justify-content-center">
+    <h3 class="text-center mb-5 text-monospace">REGISTROS DISPONÍVEIS</h3>
+    <div class="container">
+        <div class="card mb-4" *ngFor="let list of documentData">
+            <div class="card-header">
+                <h5 class="card-title text-center">REGISTRO Nº: {{list.id}}</h5>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button class="btn btn-outline-dark btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="editDocument(list)">
+                    Editar
+                  </button>
+                  <button type="button" class="btn btn-outline-warning btn-sm" disabled>Arquivar</button>
+                  <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteDocument(list)">Excluir</button>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card-text">NOME: {{list.nome}}</p>
+                <p class="card-text">DOCUMENTO(S) PERDIDO(S): {{list.documento}}</p>
+                <p class="card-text">LOCAL: {{list.local}}</p>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Informações Cadastrais</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Nome</label>
+            <input type="text" formControlName="nome" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Documentos</label>
+            <textarea type="text" formControlName="documento"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></textarea>
+          </div>
+          <div class="form-group mt-2">
+            <label for="local" class="text-monospace">Localização</label>
+            <select formControlName="local" type="text" name="local" id="local" class="form-select">
+              <option selected>Escolha a localização</option>
+              <option value="PAC ALVORADA">1 - PAC ALVORADA</option>
+              <option value="PAC CIDADE NOVA">2 - PAC CIDADE NOVA</option>
+              <option value="PAC COMPENSA">3 - PAC COMPENSA</option>
+              <option value="PAC EDUCANDOS">4 - PAC EDUCANDOS</option>
+              <option value="PAC PORTO">5 - PAC PORTO</option>
+              <option value="PAC SÃO JOSÉ">6 - PAC SÃO JOSÉ</option>
+              <option value="PAC SHOPPING PHELIPPE DAOU">7 - PAC SHOPPING PHELIPPE DAOU</option>
+              <option value="PAC SHOPPING VIA NORTE">8 - PAC SHOPPING VIA NORTE</option>
+            </select>
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button"id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+        <button type="button" class="btn btn-primary" *ngIf="showAdd" (click)="postDocumentDetails()">Adicionar</button>
+        <button type="button" class="btn btn-primary" *ngIf="showUpdate" (click)="updateDocumentDetails()">Atualizar</button>
+      </div>
+    </div>
+  </div>
+</div>

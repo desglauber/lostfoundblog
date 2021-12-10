@@ -1,0 +1,25 @@
+<div class="container col-md-6 mt-5 justify-content-center">
+  <div class="row">
+    <div class="col-md-6 ">
+      <div class="card">
+        <div class="text-center">
+          <h1>Login</h1>
+          <h3>Digite seu usuário e senha</h3>
+        </div>
+        <form>
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="mb-3">
+              <label for="inputUser" class="form-label">Usuário</label>
+              <input formControlName="user" type="user" class="form-control" id="inputUser" aria-describedby="userlHelp">
+            </div>
+            <div class="mb-3">
+              <label for="inputPassword" class="form-label">Password</label>
+              <input formControlName="password" type="password" class="form-control" id="inputPassword">
+            </div>
+            <button type="submit" class="btn btn-primary">Acessar</button>
+          </form>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

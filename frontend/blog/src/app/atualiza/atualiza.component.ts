@@ -1,25 +1,23 @@
+import { PostService } from './../service/post.service';
+import { PostModel } from './../atualiza/atualiza.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { PostService } from './../service/post.service';
-import { PostModel } from './../model/Post';
 
 @Component({
-  selector: 'app-cadastro',
-  templateUrl: './cadastro.component.html',
-  styleUrls: ['./cadastro.component.css']
+  selector: 'app-atualiza',
+  templateUrl: './atualiza.component.html',
+  styleUrls: ['./atualiza.component.css']
 })
-export class CadastroComponent implements OnInit {
+export class AtualizaComponent implements OnInit {
 
   formValue!: FormGroup;
   documentModelObj: PostModel = new PostModel();
   documentData!: any;
   showAdd!: boolean;
   showUpdate!: boolean;
-  inputName = ""; //Change to Upper Case
-  textareaDocument = ""; //Change to Upper Case
 
-  constructor(private postModel: PostService, private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private postModel: PostService) { }
 
   ngOnInit(): void {
     this.formValue = this.formBuilder.group({
@@ -46,7 +44,7 @@ export class CadastroComponent implements OnInit {
       console.log(res);
       let id = res.id;
       alert('Documento Nº: ' + id + ' cadastrado com sucesso!')
-      location.assign('/cadastro')
+      location.assign('/atualiza')
     },
     err => {
       alert("Ocorreu um erro")
@@ -64,13 +62,13 @@ export class CadastroComponent implements OnInit {
     this.postModel.delDocument(list.id)
     .subscribe(res => {
       alert('Registro Nº: '+ list.id + ' excluído com sucesso!')
-      location.assign('/cadastro')
+      location.assign('/atualiza')
     })
   }
 
   editDocument(list: any) {
-    this.showAdd = false; //Hide Adicionar button
-    this.showUpdate = true; //Show update Button
+    this.showAdd = false;
+    this.showUpdate = true;
     this.documentModelObj.id = list.id;
     this.formValue.controls['nome'].setValue(list.nome);
     this.formValue.controls['documento'].setValue(list.documento);
@@ -85,7 +83,7 @@ export class CadastroComponent implements OnInit {
     this.postModel.updateDocument(this.documentModelObj, this.documentModelObj.id)
     .subscribe(res => {
       alert('Registro Nº: '+ this.documentModelObj.id + ' atualizado com sucesso!');
-      location.assign('/cadastro');
+      location.assign('/atualiza');
     })
   }
 }

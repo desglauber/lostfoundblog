@@ -1,55 +1,71 @@
-<div class="container">
-  <div class="row mb-5 mt-5">
-    <div class="col-md-6 offset-md-3">
-      <h3 class="text-center mb-4 text-monospace">Novo cadastro</h3>
-      <div class="form-group">
-          <label for="nome" class="text-monospace">Nome</label>
-          <input type="text" name="nome" id="nome" class="form-control"
-          placeholder="Informe o nome como está no documento" [(ngModel)]='post.nome'>
-      </div>
-      <div class="form-group mt-2">
-          <label for="documento" class="text-monospace">Documento(s)</label>
-          <textarea name="documento" id="documento" cols="30" rows="4" class="form-control"
-          placeholder="Descreva o que foi perdido" [(ngModel)]='post.documento'></textarea>
-      </div>
-      <div class="form-group mt-2">
-          <label for="local" class="text-monospace">Localização</label>
-          <select type="text" name="local" id="local" class="form-select" [(ngModel)]='post.local'>
-            <option selected>Escolha a localização</option>
-            <option value="PAC ALVORADA">1 - PAC ALVORADA</option>
-            <option value="PAC CIDADE NOVA">2 - PAC CIDADE NOVA</option>
-            <option value="PAC COMPENSA">3 - PAC COMPENSA</option>
-            <option value="PAC EDUCANDOS">4 - PAC EDUCANDOS</option>
-            <option value="PAC PORTO">5 - PAC PORTO</option>
-            <option value="PAC SÃO JOSÉ">6 - PAC SÃO JOSÉ</option>
-            <option value="PAC SHOPPING PHELIPPE DAOU">7 - PAC SHOPPING PHELIPPE DAOU</option>
-            <option value="PAC SHOPPING VIA NORTE">8 - PAC SHOPPING VIA NORTE</option>
-          </select>
-      </div>
-      <button type="button" class="btn btn-success mt-2"
-          (click)='cadastrarDocumento(post)'>Cadastrar</button>
-    </div>
+<div class="container-fluid">
     <div class="container col-md-6 mt-5 justify-content-center">
-      <h3 class="text-center mb-5 text-monospace">REGISTROS DISPONÍVEIS</h3>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <button class="btn btn-success text-center justify-content-center mb-3" type="button" data-bs-toggle="modal"
+        data-bs-target="#exampleModal" (click)="clickAddDocument()">NOVO CADASTRO</button>
+      </div>
+      <h2 class="text-center mb-2 text-monospace">CONTROLE DE CADASTROS</h2>
       <div class="container">
-          <div class="card mb-4" *ngFor="let post of listPost">
-              <div class="card-header">
-                  <h5 class="card-title text-center">REGISTRO Nº: {{post.id}}</h5>
-                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button type="button" class="btn btn-outline-dark btn-sm">Editar</button>
-                    <button type="button" class="btn btn-outline-warning btn-sm" disabled>Arquivar</button>
-                    <button type="button" class="btn btn-outline-danger btn-sm" (click)="deletePost(post.id)">Excluir</button>
-                  </div>
-              </div>
-              <div class="card-body">
-                  <p class="card-text">NOME: {{post.nome}}</p>
-                  <p class="card-text">DOCUMENTO(S) PERDIDO(S): {{post.documento}}</p>
-                  <p class="card-text">LOCAL: {{post.local}}</p>
-                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                    <button type="button" class="btn btn-success btn-sm" disabled>Salvar</button>
-                  </div>
+        <div class="card mb-4" *ngFor="let list of documentData">
+          <div class="card-header">
+              <h2 class="card-title text-center">CADASTRO Nº: {{list.id}}</h2>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-outline-dark btn-sm" type="button" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" (click)="editDocument(list)">EDITAR</button>
+                <!-- <button type="button" class="btn btn-outline-warning btn-sm" disabled>Arquivar</button> -->
+                <button type="button" class="btn btn-outline-danger btn-sm" (click)="deleteDocument(list)">EXCLUIR</button>
               </div>
           </div>
+          <div class="card-body">
+              <p class="card-text">NOME: {{list.nome}}</p>
+              <p class="card-text">O QUE FOI PERDIDO: {{list.documento}}</p>
+              <p class="card-text">LOCAL DE RETIRADA: {{list.local}}</p>
+          </div>
+        </div>
+      </div>
+      </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title text-center text-monospace" id="exampleModalLabel">INFORMAÇÕES DE CADASTRO</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="inputName" class="form-label">NOME</label>
+            <input type="text" formControlName="nome" class="form-control" id="inputName" aria-describedby="nomelHelp"
+            [ngModel]="inputName" (ngModelChange)="inputName = $event.toUpperCase()">
+          </div>
+          <div class="mb-3">
+            <label for="textareaDocument" class="form-label">O QUE FOI PERDIDO?</label>
+            <textarea type="text" formControlName="documento"class="form-control" id="textareaDocument"
+            aria-describedby="documentlHelp" [ngModel]="textareaDocument" (ngModelChange)="textareaDocument = $event.toUpperCase()"></textarea>
+          </div>
+          <div class="form-group mt-2">
+            <label for="local" class="text-monospace">LOCAL DE RETIRADA</label>
+            <select formControlName="local" type="text" name="local" id="local" class="form-select">
+              <!-- <option selected>Escolha abaixo</option> -->
+              <option value="PAC ALVORADA">1 - PAC ALVORADA</option>
+              <option value="PAC CIDADE NOVA">2 - PAC CIDADE NOVA</option>
+              <option value="PAC COMPENSA">3 - PAC COMPENSA</option>
+              <option value="PAC EDUCANDOS">4 - PAC EDUCANDOS</option>
+              <option value="PAC PORTO">5 - PAC PORTO</option>
+              <option value="PAC SÃO JOSÉ">6 - PAC SÃO JOSÉ</option>
+              <option value="PAC SHOPPING PHELIPPE DAOU">7 - PAC SHOPPING PHELIPPE DAOU</option>
+              <option value="PAC SHOPPING VIA NORTE">8 - PAC SHOPPING VIA NORTE</option>
+            </select>
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button"id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">VOLTAR</button>
+        <button type="button" class="btn btn-primary" *ngIf="showAdd" (click)="postDocumentDetails()">ADICIONAR</button>
+        <button type="button" class="btn btn-primary" *ngIf="showUpdate" (click)="updateDocumentDetails()">ATUALIZAR</button>
       </div>
     </div>
   </div>

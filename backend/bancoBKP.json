@@ -1,44 +1,28 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "name": "Super User",
-      "user": "superuser",
-      "email": "",
-      "password": "123456"
-    },
-    {
-      "id": 2,
-      "name": "Glauber",
-      "user": "glauber",
-      "email": "",
-      "password": "123456"
-    }
-  ],
   "posts": [
     {
       "id": 1,
-      "nome": "MARIA DO ROSÁRIO",
-      "documento": "DOCUMENTO DE IDENTIDADE",
-      "local": "PAC ALVORADA"
+      "nome": "Maria",
+      "documento": "Documento de identidade",
+      "local": "PAC São José"
     },
     {
       "id": 2,
-      "nome": "JOÃO",
-      "documento": "CARTEIRA DE TRABALHO",
-      "local": "PAC COMPENSA"
+      "nome": "João",
+      "documento": "Carteira de trabalho",
+      "local": "PAC Compensa"
     },
     {
       "id": 3,
-      "nome": "JOSÉ",
-      "documento": "CARTÃO PASSA FÁCIL",
-      "local": "PAC ALVORADA"
+      "nome": "José",
+      "documento": "Cartão Passa fácil",
+      "local": "PAC Alvorada"
     },
     {
       "id": 4,
-      "nome": "GABRIEL",
-      "documento": "CARTEIRA ESTUDANTIL",
-      "local": "PAC ALVORADA"
+      "nome": "Gabriel",
+      "documento": "Carteira estudantil",
+      "local": "PAC Sumaúma"
     },
     {
       "id": 5,
@@ -60,9 +44,9 @@
     },
     {
       "id": 8,
-      "nome": "DFGSFDGSDFG",
-      "documento": "GHDFHHSHTH",
-      "local": "PAC SHOPPING VIA NORTE"
+      "nome": "dfgsfdgsdfg",
+      "documento": "ghdfhhshth",
+      "local": "ukjuykujytujhy"
     },
     {
       "id": 9,
@@ -90,15 +74,15 @@
     },
     {
       "id": 13,
-      "nome": "IOPOKJPOK",
-      "documento": "KOPOKPOKP",
-      "local": "PAC SÃO JOSÉ"
+      "nome": "iopokjpok",
+      "documento": "kopokpokp",
+      "local": "opkopko"
     },
     {
       "id": 14,
-      "nome": "JGDFKJGSÇLDFGJLKÇSDFJGLÇKFDJGJFLKDSJFLKJFDLÇKGDSFGSDLKFJGLKDFJGK",
-      "documento": "DKJLÇDXFJGVKLÇDFJLKSDG",
-      "local": "PAC PORTO"
+      "nome": "jgdfkjgsçldfgjlkçsdfjglçkfdjgjflkdsjflkjfdlçkgdsfgsdlkfjglkdfjgk",
+      "documento": "dkjlçdxfjgvklçdfjlksdg",
+      "local": "dfkjglçsjdgkljdfçlksag"
     },
     {
       "id": 15,
@@ -108,9 +92,9 @@
     },
     {
       "id": 16,
-      "nome": "MAIS UM TESTADOR",
-      "documento": "FGDSA GDSLKJLAKJDFLÇKG",
-      "local": "PAC CIDADE NOVA"
+      "nome": "Mais um testador",
+      "documento": "fgdsa gdslkjlakjdflçkg",
+      "local": "kjglçkjdsfçlkgjçlksdf"
     },
     {
       "id": 17,
@@ -176,7 +160,7 @@
       "id": 27,
       "nome": "",
       "documento": "",
-      "local": "PAC SHOPPING PHELIPPE DAOU"
+      "local": ""
     },
     {
       "id": 28,
@@ -213,48 +197,6 @@
       "nome": "",
       "documento": "",
       "local": ""
-    },
-    {
-      "id": 38,
-      "nome": "Teste de novo método de cadastro",
-      "documento": "Testando",
-      "local": "PAC ALVORADA"
-    },
-    {
-      "id": 39,
-      "nome": "Teste de novo método de cadastro 2",
-      "documento": "Testando de novo",
-      "local": "PAC PORTO"
-    },
-    {
-      "id": 40,
-      "nome": "Teste de novo método de cadastro 3",
-      "documento": "Após o cadastro volta pra tela de adm",
-      "local": "PAC COMPENSA"
-    },
-    {
-      "id": 41,
-      "nome": "Teste de novo método de cadastro 2",
-      "documento": "dfadsfsadf",
-      "local": "PAC CIDADE NOVA"
-    },
-    {
-      "id": 42,
-      "nome": "Teste de novo método de cadastro 2",
-      "documento": "fgregdsfgd",
-      "local": "PAC COMPENSA"
-    },
-    {
-      "id": 43,
-      "nome": "Teste de novo método de cadastro 3",
-      "documento": "ghshgfd",
-      "local": "PAC CIDADE NOVA"
-    },
-    {
-      "id": 44,
-      "nome": "Teste de novo método de cadastro 44",
-      "documento": "Cadastrando obj 44",
-      "local": "PAC COMPENSA"
     }
   ]
 }
