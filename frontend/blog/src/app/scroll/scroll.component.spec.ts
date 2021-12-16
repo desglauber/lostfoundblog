@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AtualizaComponent } from './atualiza.component';
+import { AtualizaComponent } from './scroll.component';
 
 describe('AtualizaComponent', () => {
   let component: AtualizaComponent;

@@ -1,6 +1,6 @@
 .parallax{
     background-image: url('https://cdn.pixabay.com/photo/2017/08/22/11/01/wallet-2668549_960_720.jpg');
-    min-height: 500px;
+    min-height: 0px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

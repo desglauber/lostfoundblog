@@ -15,7 +15,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from "@angular/material/input";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { AtualizaComponent } from './atualiza/atualiza.component';
+import { ScrollComponent } from './scroll/scroll.component';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
@@ -27,7 +27,7 @@ import { LoginComponent } from './login/login.component';
     FeedComponent,
     ContatoComponent,
     CadastroComponent,
-    AtualizaComponent,
+    ScrollComponent,
     LoginComponent
   ],
   imports: [
